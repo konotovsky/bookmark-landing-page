@@ -126,7 +126,8 @@
                 class="border-t border-blue-600/20 hover:text-red-400 active:text-red-400 sm:border-t-0 sm:border-b"
               >
                 <a
-                  class="inline-block w-40.75 border-b-4 border-transparent pt-4 pb-3 hover:border-red-400 active:border-red-400 sm:w-50.5"
+                  data-index="0"
+                  class="feature-link inline-block w-40.75 border-b-4 border-transparent pt-4 pb-3 sm:w-50.5"
                   href="#"
                   >Simple Bookmarking</a
                 >
@@ -135,7 +136,8 @@
                 class="border-t border-blue-600/20 hover:text-red-400 active:text-red-400 sm:border-t-0 sm:border-b"
               >
                 <a
-                  class="inline-block w-40.75 border-b-4 border-transparent pt-4 pb-3 hover:border-red-400 active:border-red-400 sm:w-50.5"
+                  data-index="1"
+                  class="feature-link inline-block w-40.75 border-b-4 border-transparent pt-4 pb-3 sm:w-50.5"
                   href="#"
                   >Speedy Searching</a
                 >
@@ -144,7 +146,8 @@
                 class="border-t border-b border-blue-600/20 hover:text-red-400 active:text-red-400 sm:border-t-0"
               >
                 <a
-                  class="inline-block w-40.75 border-b-4 border-transparent pt-4 pb-3 hover:border-red-400 active:border-red-400 sm:w-50.5"
+                  data-index="2"
+                  class="feature-link inline-block w-40.75 border-b-4 border-transparent pt-4 pb-3 sm:w-50.5"
                   href="#"
                   >Easy Sharing</a
                 >
@@ -157,6 +160,7 @@
                 class="relative mt-3 pb-9 sm:-mt-6 sm:ml-auto sm:max-w-134 sm:translate-x-4.25 sm:pb-22.25 xl:translate-x-0"
               >
                 <img
+                  id="feature-img"
                   class="relative z-10 w-full"
                   src="/images/illustration-features-tab-1.svg"
                   alt="Simple Bookmarking image"
@@ -171,11 +175,13 @@
                 class="flex flex-col items-center gap-4 text-center xl:items-start xl:gap-6 xl:text-left"
               >
                 <h2
+                  id="feature-title"
                   class="text-3xl leading-[135%] font-medium tracking-[0px] text-pretty wrap-break-word text-blue-950 sm:text-[32px] sm:leading-[125%] sm:tracking-[-0.1px]"
                 >
                   Bookmark in one click
                 </h2>
                 <p
+                  id="feature-description"
                   class="text-[15px] leading-[165%] tracking-[0px] text-blue-950/50 sm:mx-auto sm:w-135 sm:text-lg sm:leading-[155%] xl:max-w-112.5"
                 >
                   Organize your bookmarks however you like. Our simple
@@ -478,13 +484,28 @@
           </div>
           <form
             class="flex flex-col space-y-4 sm:flex-row sm:gap-4 sm:space-y-0"
+            novalidate
           >
-            <input
-              class="rounded-[5px] border-[3px] border-transparent bg-white px-4 py-2.5 text-[15px] leading-[165%] tracking-[0px] text-blue-950 outline-0 placeholder:text-black/25 focus:border-red-400 sm:w-3/4 sm:text-sm sm:leading-[200%] sm:tracking-[0.25px]"
-              type="email"
-              placeholder="Enter your email address"
-            />
+            <div class="relative sm:w-3/4">
+              <input
+                id="email"
+                class="w-full rounded-t-[5px] rounded-b-[5px] border-[3px] border-transparent bg-white px-4 py-2.5 text-[15px] leading-[165%] tracking-[0px] text-blue-950 outline-0 placeholder:text-black/25 focus:border-red-400 sm:text-sm sm:leading-[200%] sm:tracking-[0.25px]"
+                type="email"
+                placeholder="Enter your email address"
+              />
+              <div id="error" class="hidden">
+                <div class="absolute top-1/2 right-4 translate-y-[-50%]">
+                  <img src="/images/icon-error.svg" alt="Error icon" />
+                </div>
+                <div
+                  class="absolute w-full rounded-b-[5px] bg-red-400 px-4 py-1.5 text-[10px] leading-[120%] font-medium tracking-[0.25px] text-white italic"
+                >
+                  Whoops, make sure it’s an email
+                </div>
+              </div>
+            </div>
             <button
+              id="sendForm"
               class="cursor-pointer rounded-[5px] border-2 border-red-400 bg-red-400 py-2.5 text-[15px] leading-[200%] font-medium tracking-[0px] text-white hover:bg-white hover:text-red-400 active:bg-white active:text-red-400 sm:w-1/4 sm:text-sm sm:tracking-[0.25px]"
               type="submit"
             >
